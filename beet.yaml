@@ -1,0 +1,42 @@
+id: adco
+name: Advancement Count
+description: ""
+author: "2mal3"
+version: "v1.0.0"
+minecraft: "1.19"
+
+output: build
+
+data_pack:
+    name: Advancement-Count
+    load:
+        - src
+
+pipeline:
+    - beet.contrib.rename_files
+    - mecha
+    - plugins.remove_empty_functions
+    - plugins.installation_advancement
+require:
+    - bolt
+
+meta:
+    version: 10000
+
+    bolt:
+        entrypoint:
+            - adco:advancements
+
+    vanilla:
+        version: "1.19.3"
+
+    rename_files:
+        data_pack:
+            match:
+                functions: "adco:*"
+            find: "((?!.*-).+)"
+            replace: '\1/child'
+
+    installation_advancement:
+        icon:
+            item: minecraft:knowledge_book
