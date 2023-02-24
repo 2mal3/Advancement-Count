@@ -11,7 +11,7 @@ permissions:
 
 env:
   NAME: 'Advancement-Count'
-  MODRINTH_ID: ''
+  MODRINTH_ID: '2tEdxXOF'
 
 jobs:
   build:
@@ -59,20 +59,6 @@ jobs:
           mv pack.zip ${{ env.NAME }}.zip
           zip -u ${{ env.NAME }} LICENSE.txt README.md CHANGELOG.md
 
-      - name: Squash resourcepack
-        uses: ComunidadAylas/PackSquash-action@v3
-        with:
-          path: build/${{ env.NAME }}-Resourcepack
-          artifact_name: resourcepack-raw
-      - name: Download resourcepack-raw
-        uses: actions/download-artifact@v3
-        with:
-          name: resourcepack-raw
-      - name: Finish resourcepack
-        run: |
-          mv pack.zip ${{ env.NAME }}-Resourcepack.zip
-          zip -u ${{ env.NAME }}-Resourcepack LICENSE.txt README.md CHANGELOG.md
-
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
@@ -80,7 +66,6 @@ jobs:
           path: |
             CHANGELOG.md
             ${{ env.NAME }}.zip
-            ${{ env.NAME }}-Resourcepack.zip
 
   release-github:
     runs-on: ubuntu-latest
@@ -99,7 +84,6 @@ jobs:
           body_path: CHANGELOG.md
           files: |
             ${{ env.NAME }}.zip
-            ${{ env.NAME }}-Resourcepack.zip
 
   release-modrinth:
     runs-on: ubuntu-latest
@@ -117,7 +101,6 @@ jobs:
           modrinth-id: ${{ env.MODRINTH_ID }}
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
           files-primary: ${{ env.NAME }}.zip
-          files-secondary: ${{ env.NAME }}-Resourcepack.zip
           name: ${{ env.NAME }} ${{github.ref_name}}
           version: ${{github.ref_name}}
           version-type: release
