@@ -3,11 +3,15 @@ name: Release
 on:
   push:
     tags:
-      - "v*.*.*"
+      - 'v*.*.*'
   workflow_dispatch:
 
 permissions:
   contents: write
+
+env:
+  NAME: 'Advancement-Count'
+  MODRINTH_ID: ''
 
 jobs:
   build:
@@ -37,13 +41,13 @@ jobs:
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install
 
-      - name: Build datapack
+      - name: Build
         run: poetry run beet
 
       - name: Squash datapack
         uses: ComunidadAylas/PackSquash-action@v3
         with:
-          path: build/Advancement-Count
+          path: build/${{ env.NAME }}
           artifact_name: datapack-raw
           force_include_files: icon.png
       - name: Download datapack-raw
@@ -52,8 +56,22 @@ jobs:
           name: datapack-raw
       - name: Finish datapack
         run: |
-          mv pack.zip Advancement-Count.zip
-          zip -u Advancement-Count.zip LICENSE.txt README.md CHANGELOG.md
+          mv pack.zip ${{ env.NAME }}.zip
+          zip -u ${{ env.NAME }} LICENSE.txt README.md CHANGELOG.md
+
+      - name: Squash resourcepack
+        uses: ComunidadAylas/PackSquash-action@v3
+        with:
+          path: build/${{ env.NAME }}-Resourcepack
+          artifact_name: resourcepack-raw
+      - name: Download resourcepack-raw
+        uses: actions/download-artifact@v3
+        with:
+          name: resourcepack-raw
+      - name: Finish resourcepack
+        run: |
+          mv pack.zip ${{ env.NAME }}-Resourcepack.zip
+          zip -u ${{ env.NAME }}-Resourcepack LICENSE.txt README.md CHANGELOG.md
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
@@ -61,7 +79,8 @@ jobs:
           name: artifact
           path: |
             CHANGELOG.md
-            Advancement-Count.zip
+            ${{ env.NAME }}.zip
+            ${{ env.NAME }}-Resourcepack.zip
 
   release-github:
     runs-on: ubuntu-latest
@@ -76,10 +95,11 @@ jobs:
       - name: Create release
         uses: softprops/action-gh-release@v1
         with:
-          name: Advancement Count ${{github.ref_name}}
+          name: ${{ env.NAME }} ${{github.ref_name}}
           body_path: CHANGELOG.md
           files: |
-            Advancement-Count.zip
+            ${{ env.NAME }}.zip
+            ${{ env.NAME }}-Resourcepack.zip
 
   release-modrinth:
     runs-on: ubuntu-latest
@@ -94,10 +114,11 @@ jobs:
       - name: Publish on Modrinth
         uses: Kir-Antipov/mc-publish@v3.2
         with:
-          modrinth-id: hIlFLwrl
+          modrinth-id: ${{ env.MODRINTH_ID }}
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-          files: Advancement-Count.zip
-          name: Advancement Count ${{github.ref_name}}
+          files-primary: ${{ env.NAME }}.zip
+          files-secondary: ${{ env.NAME }}-Resourcepack.zip
+          name: ${{ env.NAME }} ${{github.ref_name}}
           version: ${{github.ref_name}}
           version-type: release
           changelog-file: CHANGELOG.md
