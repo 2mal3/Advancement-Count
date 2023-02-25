@@ -1,6 +1,6 @@
 id: adco
 name: Advancement Count
-description: ""
+description: "Awards players a certain number of points for each advancement they complete. The total number for each player can then be viewed in the Tab list."
 author: "2mal3"
 version: "v1.0.0"
 minecraft: "1.19"
@@ -9,6 +9,7 @@ output: build
 
 data_pack:
     name: Advancement-Count
+    description: "v1.0.0"
     load:
         - src
 
