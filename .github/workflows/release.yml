@@ -49,7 +49,7 @@ jobs:
         with:
           path: build/${{ env.NAME }}
           artifact_name: datapack-raw
-          force_include_files: icon.png
+          force_include_files: pack.png
       - name: Download datapack-raw
         uses: actions/download-artifact@v3
         with:
