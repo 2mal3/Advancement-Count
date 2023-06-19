@@ -28,7 +28,7 @@ jobs:
         with:
           python-version: '3.10'
       - name: Install Poetry
-        uses: snok/install-poetry@v1.2.1
+        uses: snok/install-poetry@v1.3.3
         with:
           virtualenvs-in-project: true
       - name: Setup cache
@@ -38,7 +38,6 @@ jobs:
           path: .venv
           key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
       - name: Install dependencies
-        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install
 
       - name: Build
@@ -49,7 +48,6 @@ jobs:
         with:
           path: build/${{ env.NAME }}
           artifact_name: datapack-raw
-          force_include_files: pack.png
       - name: Download datapack-raw
         uses: actions/download-artifact@v3
         with:
@@ -107,7 +105,4 @@ jobs:
           changelog-file: CHANGELOG.md
           loaders: datapack
           game-versions: |
-            1.19
-            1.19.1
-            1.19.2
-            1.19.3
+            1.20.1

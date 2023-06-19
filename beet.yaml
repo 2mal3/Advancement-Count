@@ -1,20 +1,20 @@
-id: adco
-name: Advancement Count
+id: "adco"
+name: "Advancement Count"
 description: "Awards players a certain number of points for each advancement they complete. The total number for each player can then be viewed in the Tab list."
 author: "2mal3"
 version: "v1.0.0"
-minecraft: "1.19"
+minecraft: "1.20"
 
-output: build
+output: "build"
 
 data_pack:
-    name: Advancement-Count
+    name: "Advancement-Count"
     description: "v1.0.0"
     load:
-        - src
+        - "src"
+        - pack.png: "pack.png"
 
 pipeline:
-    - beet.contrib.rename_files
     - mecha
     - plugins.remove_empty_functions
     - plugins.installation_advancement
@@ -30,13 +30,6 @@ meta:
 
     vanilla:
         version: "1.19.3"
-
-    rename_files:
-        data_pack:
-            match:
-                functions: "adco:*"
-            find: "((?!.*-).+)"
-            replace: '\1/child'
 
     installation_advancement:
         icon:
