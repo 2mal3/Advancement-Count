@@ -22,7 +22,7 @@ require:
     - bolt
 
 meta:
-    version: 10000
+    version: 10001
 
     bolt:
         entrypoint:
