@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "advancement-count"
-version = "1.0.1"
+version = "1.0.2"
 description = ""
 authors = ["2mal3 <56305732+2mal3@users.noreply.github.com>"]
 readme = "README.md"
