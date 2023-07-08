@@ -38,6 +38,9 @@ function ~/first_join:
             }
         ]
 
+    # Unlock advancements that were unlocked before the datapack was installed
+    function adco:unlock_previous
+
 advancement ~/first_join {
     "criteria": {
         "requirement": {
