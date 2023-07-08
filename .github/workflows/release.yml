@@ -45,7 +45,7 @@ jobs:
       - name: Squash datapack
         uses: ComunidadAylas/PackSquash-action@v4
         with:
-          packsquash_version: 0.4.0
+          packsquash_version: v0.4.0
           artifact_name: datapack-raw
           options: |
             pack_directory = "build/${{ env.NAME }}"
