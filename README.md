@@ -26,6 +26,7 @@ The maximum number of points you can score is 204.
 - advancements from other datapacks or mods are not supported
 - bug reports and suggestions are **ONLY** accepted on [GitHub](https://github.com/2mal3/No-Lag/issues)
 - to uninstall, run the command `/function adco:core/uninstall`and then optionally delete the datapack file
+- to reset the scores for all current players, run the command `/function adco:reset`
 - datapack was created with the help of [beet](https://github.com/mcbeet/beet)
 
 _v1.8.0_
