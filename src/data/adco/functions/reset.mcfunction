@@ -6,5 +6,5 @@ scoreboard objectives add adco.score dummy
 scoreboard objectives setdisplay list adco.score
 
 tellraw @s:
-    text: "Reset all Advancements"
+    text: "Reset all Advancements for all current players"
     color: "gold"
