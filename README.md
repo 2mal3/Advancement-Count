@@ -29,4 +29,4 @@ The maximum number of points you can score is 206.
 - to reset the scores for all current players, run the command `/function adco:reset`
 - datapack was created with the help of [beet](https://github.com/mcbeet/beet)
 
-_v1.11_
+_v1.14_
