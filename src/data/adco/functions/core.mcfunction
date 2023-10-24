@@ -27,7 +27,7 @@ function ~/load/install:
 ## First Join
 function ~/first_join:
     execute store result score .temp_0 adco.data run data get entity @s DataVersion
-    execute unless score .temp_0 adco.data matches 3463..3465:
+    execute unless score .temp_0 adco.data matches 3463..3578:
         tellraw @s [
             {"text": "[", "color": "gray"},
             {"text": f"{ctx.project_name}", "color": "red", "bold": true},
