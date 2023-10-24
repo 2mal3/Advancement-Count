@@ -1,7 +1,11 @@
+from adco:log import log
+
 
 ## Load
 function ~/load:
     scoreboard objectives add adco.data dummy
+
+    log "info" "server" "Loaded!"
 
     execute unless score %installed adco.data matches 1 run function ~/install
     execute if score %installed adco.data matches 1 unless score $version adco.data matches ctx.meta.version run function ~/update
@@ -11,6 +15,7 @@ function ~/load:
 function ~/load/install:
     scoreboard players set %installed adco.data 1
 
+    scoreboard objectives add 2mal3.debug_mode dummy
     scoreboard objectives add adco.score dummy
     scoreboard objectives setdisplay list adco.score
     scoreboard objectives modify adco.score rendertype integer
