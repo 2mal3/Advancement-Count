@@ -5,6 +5,7 @@ on:
     paths:
       - "**.bolt"
       - "**.json"
+      - "**.mcfunction"
       - "beet.yaml"
     branches:
       - "**"
