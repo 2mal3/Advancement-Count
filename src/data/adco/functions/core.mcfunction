@@ -29,6 +29,13 @@ function ~/load/install:
             color: "green"
 
 
+## Update
+function ~/update:
+    execute if score $version adco.data matches 10100:
+        scoreboard players set $version adco.data 10101
+        log "info" "server" "Updated to 1.0.1"
+
+
 ## First Join
 function ~/first_join:
     execute store result score .temp_0 adco.data run data get entity @s DataVersion
