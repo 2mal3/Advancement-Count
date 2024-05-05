@@ -1,25 +1,18 @@
-id: ""
-name: ""
-description: ""
+id: "adco"
+name: "Advancement Count"
+description: "Awards players a certain number of points for each advancement they complete. The total number for each player can then be viewed in the Tab list."
 author: "2mal3"
-version: "v0.1.0"
+version: "v1.1.1"
 minecraft: "1.20"
 
 output: "build"
 
 data_pack:
-  name: ""
-  description: "v0.1.0"
-  load:
-    - "src"
-    - pack.png: "pack.png"
-
-
-resource_pack:
-  name:  "-Resourcepack"
-  load:
-    - assets: "assets"
-    - pack.png: "pack.png"
+    name: "Advancement-Count"
+    description: "v1.1.0"
+    load:
+        - "src"
+        - pack.png: "pack.png"
 
 pipeline:
   - mecha
@@ -29,12 +22,15 @@ require:
   - bolt
 
 meta:
-  version: 100
+    version: 10101
 
-  bolt:
-    entrypoint:
-      - ""
+    bolt:
+        entrypoint:
+            - adco:advancements
 
-  installation_advancement:
-    icon:
-      item: "minecraft:cobblestone"
+    vanilla:
+        version: "1.20.1"
+
+    installation_advancement:
+        icon:
+            item: minecraft:knowledge_book

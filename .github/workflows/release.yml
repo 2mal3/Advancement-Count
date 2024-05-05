@@ -9,8 +9,8 @@ permissions:
   contents: write
 
 env:
-  NAME: ''
-  MODRINTH_ID: ''
+  NAME: 'Advancement-Count'
+  MODRINTH_ID: '2tEdxXOF'
 
 jobs:
   build:
@@ -43,17 +43,6 @@ jobs:
       - name: Add secondary files to datapack
         run: zip -u ${{ env.NAME }} LICENSE.txt README.md CHANGELOG.md
 
-      - name: Squash resourcepack
-        uses: ComunidadAylas/PackSquash-action@v4
-        with:
-          packsquash_version: v0.4.0
-          artifact_name: resourcepack-raw
-          options: |
-            pack_directory = "build/${{ env.NAME }}-Resourcepack"
-            output_file_path = "${{ env.NAME }}-Resourcepack.zip"
-      - name: Add secondary files to resourcepack
-        run: zip -u ${{ env.NAME }}-Resourcepack LICENSE.txt README.md CHANGELOG.md
-
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -61,7 +50,6 @@ jobs:
           path: |
             CHANGELOG.md
             ${{ env.NAME }}.zip
-            ${{ env.NAME }}-Resourcepack.zip
 
   release-github:
     runs-on: ubuntu-latest
@@ -80,7 +68,6 @@ jobs:
           body_path: CHANGELOG.md
           files: |
             ${{ env.NAME }}.zip
-            ${{ env.NAME }}-Resourcepack.zip
 
   release-modrinth:
     runs-on: ubuntu-latest
@@ -100,7 +87,6 @@ jobs:
           modrinth-unfeature-mode: intersection
           files: |
             ${{ env.NAME }}.zip
-            ${{ env.NAME }}-Resourcepack.zip
           name: ${{ env.NAME }} ${{github.ref_name}}
           version: ${{github.ref_name}}
           version-type: release

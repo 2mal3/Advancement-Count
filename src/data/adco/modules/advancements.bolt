@@ -1,0 +1,21 @@
+from beet.contrib.vanilla import Vanilla
+
+
+vanilla_advancements = ctx.inject(Vanilla).mount("data/minecraft/advancements").data.advancements
+for name, advancement in vanilla_advancements.items():
+    if "recipes" in name:   # Skip recipe unlocking advancements
+        continue
+
+    modified_advancement = advancement.data
+
+    if "rewards" not in modified_advancement:
+        modified_advancement["rewards"] = {}
+
+    if modified_advancement["display"]["frame"] == "task":
+        modified_advancement["rewards"]["function"] = "adco:count/1"
+    if modified_advancement["display"]["frame"] == "goal":
+        modified_advancement["rewards"]["function"] = "adco:count/2"
+    if modified_advancement["display"]["frame"] == "challenge":
+        modified_advancement["rewards"]["function"] = "adco:count/5"
+
+    advancement name modified_advancement
