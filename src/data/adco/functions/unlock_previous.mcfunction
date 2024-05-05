@@ -23,9 +23,10 @@ for name, advancement in vanilla_advancements.items():
 
     # Give the corresponding points to all players that have unlocked the advancement
     advancement_content = advancement.data
-    if advancement_content["display"]["frame"] == "task":
+    advancement_display = advancement_content["display"]
+    if "frame" not in advancement_display or advancement_display["frame"] == "task":
         execute if predicate f"adco:unlock_previous/{predicate_name}" run function adco:count/1
-    if advancement_content["display"]["frame"] == "goal":
+    elif advancement_display["frame"] == "goal":
         execute if predicate f"adco:unlock_previous/{predicate_name}" run function adco:count/2
-    if advancement_content["display"]["frame"] == "challenge":
+    elif advancement_display["frame"] == "challenge":
         execute if predicate f"adco:unlock_previous/{predicate_name}" run function adco:count/5

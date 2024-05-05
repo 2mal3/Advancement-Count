@@ -11,11 +11,12 @@ for name, advancement in vanilla_advancements.items():
     if "rewards" not in modified_advancement:
         modified_advancement["rewards"] = {}
 
-    if modified_advancement["display"]["frame"] == "task":
+    advancement_display = modified_advancement["display"]
+    if "frame" not in advancement_display or advancement_display["frame"] == "task":
         modified_advancement["rewards"]["function"] = "adco:count/1"
-    if modified_advancement["display"]["frame"] == "goal":
+    elif advancement_display["frame"] == "goal":
         modified_advancement["rewards"]["function"] = "adco:count/2"
-    if modified_advancement["display"]["frame"] == "challenge":
+    elif advancement_display["frame"] == "challenge":
         modified_advancement["rewards"]["function"] = "adco:count/5"
 
     advancement name modified_advancement
