@@ -45,5 +45,6 @@ function ~/uninstall:
         text: f"Uninstalled {ctx.project_name} {ctx.project_version} from {ctx.project_author}!"
         color: "green"
 
-    datapack disable f"file/{ctx.project_name}"
-    datapack disable f"file/{ctx.project_name}.zip"
+    project_file_name = ctx.project_name.replace(' ', '-')
+    datapack disable f"file/{project_file_name}"
+    datapack disable f"file/{project_file_name}.zip"
