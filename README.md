@@ -12,7 +12,7 @@ The total number of all points for each player can then be viewed in the player 
 - 🪶 lightweight
 - ♻️ fast and complete updates to new versions of Minecraft, thanks to an automated build system
 
-The maximum number of points you can score is 206.
+The maximum number of points you can score is 214.
 
 ### ⭐ Rewards
 
