@@ -35,6 +35,10 @@ function ~/update:
         scoreboard players set $version adco.data 10101
         log "info" "server" "Updated to 1.0.1"
 
+    execute if score $version adco.data matches 10101:
+        scoreboard players set $version adco.data 10102
+        log "info" "server" "Updated to 1.1.2"
+
 
 ## Uninstall
 function ~/uninstall:
