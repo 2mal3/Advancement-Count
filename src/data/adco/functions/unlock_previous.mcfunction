@@ -1,7 +1,8 @@
 from beet.contrib.vanilla import Vanilla
 
 
-vanilla_advancements = ctx.inject(Vanilla).mount("data/minecraft/advancements").data.advancements
+vanilla = ctx.inject(Vanilla)
+vanilla_advancements = vanilla.releases["1.21"].data.advancements
 for name, advancement in vanilla_advancements.items():
     if "recipes" in name:   # Skip recipe unlocking advancements
         continue
