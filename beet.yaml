@@ -3,7 +3,7 @@ name: "Advancement Count"
 description: "Awards players a certain number of points for each advancement they complete. The total number for each player can then be viewed in the Tab list."
 author: "2mal3"
 version: "v1.1.2"
-minecraft: "1.20"
+minecraft: "1.21"
 
 output: "build"
 
