@@ -1,6 +1,6 @@
 
-## v1.1.2 - 6.5.2024
+## v1.1.3 - 23.7.2024
 
 ### Changed
 
-- updated to Minecraft 1.20.6
+- updated to Minecraft 1.21.0
