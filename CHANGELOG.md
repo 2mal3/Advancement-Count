@@ -1,6 +1,6 @@
 
-## v1.1.3 - 23.7.2024
+## v1.1.4 - 27.7.2024
 
-### Changed
+### Fixed
 
-- updated to Minecraft 1.21.0
+- datapack would not work (thanks to @BeHaCh)
