@@ -19,6 +19,7 @@ function ~/load/install:
     scoreboard objectives add adco.score dummy
     scoreboard objectives setdisplay list adco.score
     scoreboard objectives modify adco.score rendertype integer
+    data modify storage adco:data root.players set value []
     # Set the version in format: xx.xx.xx
     scoreboard players set $version adco.data ctx.meta.version
 
