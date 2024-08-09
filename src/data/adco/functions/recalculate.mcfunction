@@ -39,12 +39,13 @@ for name, advancement in vanilla_advancements.items():
         execute if predicate f"adco:unlock_previous/{predicate_name}" run scoreboard players add .temp adco.data 5
 
 # Get the player name
-tag @s add adco.this
-execute summon minecraft:text_display:
-    data merge entity @s {text:'{"selector":"@p[tag=adco.this]"}'}
-    data modify storage adco:data root.temp set string entity @s text 9 14
-    kill @s
-tag @s remove adco.this
+# 386f2fa2-430d-4c4c-aca1-85eaadcb3019
+summon armor_stand ~ ~ ~ \
+    {UUID:[I;946810786,1124944972,-1398700566,-1379192807],Marker:1b,Invisible:1b}
+loot replace entity 386f2fa2-430d-4c4c-aca1-85eaadcb3019 armor.head loot \
+    {"pools":[{"rolls":1,"entries":[{"type":"minecraft:item","name":"minecraft:player_head","functions":[{"function":"minecraft:fill_player_head","entity":"this"}]}]}]}
+data modify storage adco:data root.temp set from entity 386f2fa2-430d-4c4c-aca1-85eaadcb3019 ArmorItems[3].components."minecraft:profile".name
+kill 386f2fa2-430d-4c4c-aca1-85eaadcb3019
 
 # Store the calculated points with the player name in the data storage
 data modify storage adco:data root.uuid set from entity @s UUID
@@ -65,7 +66,6 @@ function ~/render_loop
 function ~/render_loop:
     execute with storage adco:data root.temp[-1]:
         $scoreboard players set $(name) adco.score $(points)
-        $say $(name)
 
     data remove storage adco:data root.temp[-1]
     execute if data storage adco:data root.temp[] run function ~/
