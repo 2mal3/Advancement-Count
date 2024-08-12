@@ -1,0 +1,3 @@
+[submodule "src/data/psm"]
+	path = src/data/psm
+	url = https://github.com/2mal3/player-score-migrator
