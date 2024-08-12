@@ -28,3 +28,4 @@ The maximum number of points you can score is 231.
 - to uninstall, run the command `/function adco:core/uninstall`and then optionally delete the datapack file
 - to reset the scores for all current players, run the command `/function adco:reset`
 - datapack was created with the help of [beet](https://github.com/mcbeet/beet)
+- datapack uses the [psm library](https://github.com/2mal3/player-score-migrator)
