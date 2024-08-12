@@ -17,8 +17,11 @@ advancement adco:first_join {
     }
 }
 
+scoreboard players reset * adco.score
 
 execute as @a run function adco:recalculate_player:
+    scoreboard players reset @s adco.score
+
     vanilla = ctx.inject(Vanilla)
     vanilla_advancements = vanilla.releases["1.21"].data.advancements
     for name, advancement in vanilla_advancements.items():
