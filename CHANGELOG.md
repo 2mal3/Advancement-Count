@@ -1,13 +1,8 @@
-
-### Added
-
-- command to reset scores for all players or a specific player (thanks to @mulissi, closes #28)
-
 ### Changed
 
-- more understandable feedback messages for commands
+- new stabler way to ensure that the score stays accurate throughout player name changes, datapack and version updates and other events
 
-### Fixed
+### Removed
 
-- player name change breaks score
-- advancements made before the datapack was installed were not counted
+- `recalculate` and `recalculate_player` commands as they should no longer needed with the new system
+- `reset` command because of the rare use case and complexity required to implement it in the new system

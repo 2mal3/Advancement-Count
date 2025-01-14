@@ -1,6 +1,6 @@
 [project]
 name = "advancement-count"
-version = "1.1.5"
+version = "2.0.0"
 description = "Add your description here"
 authors = [
     { name = "2mal3", email = "56305732+2mal3@users.noreply.github.com" }
