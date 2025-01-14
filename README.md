@@ -22,7 +22,7 @@ The maximum number of points you can score is 231.
 
 ## 📝 Notes
 
-- **ONLY** the latest version of the datapack for Fabric and Vanilla 1.21.1 is supported
+- **ONLY** the latest version of the datapack for Fabric and Vanilla 1.21 is supported
 - advancements from other datapacks or mods are not supported
 - bug reports and suggestions are **ONLY** accepted on [GitHub](https://github.com/2mal3/Advancement-Count/issues)
 - to uninstall, run the command `/function adco:core/uninstall`and then optionally delete the datapack file
