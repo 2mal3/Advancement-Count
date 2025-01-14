@@ -10,6 +10,8 @@ function ~/load:
     execute unless score %installed adco.data matches 1 run function ~/install
     execute if score %installed adco.data matches 1 unless score $version adco.data matches ctx.meta.version run function ~/update
 
+    scoreboard players add %latest adco.recalculate_version 1
+
 
 ## Install
 function ~/load/install:
@@ -19,6 +21,7 @@ function ~/load/install:
     scoreboard objectives add adco.score dummy
     scoreboard objectives setdisplay list adco.score
     scoreboard objectives modify adco.score rendertype integer
+    scoreboard objectives add adco.recalculate_version dummy
     # Set the version in format: xx.xx.xx
     scoreboard players set $version adco.data ctx.meta.version
 
@@ -56,6 +59,7 @@ function ~/update:
 function ~/uninstall:
     scoreboard objectives remove adco.data
     scoreboard objectives remove adco.score
+    scoreboard objectives remove adco.recalculate_version
 
     tellraw @a:
         text: f"Uninstalled {ctx.project_name} {ctx.project_version} from {ctx.project_author}!"

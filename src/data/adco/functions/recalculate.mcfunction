@@ -1,25 +1,20 @@
 from beet.contrib.vanilla import Vanilla
 
 
-tellraw @s:
-    text: "Recalculated Advancements for all online players"
-    color: "gold"
+# Cenarios:
+# player that has installed datapack to an existing world want to get its advancements tracked -> data version does not match, since new player has no score -> update
+# player that has changed its name want to maintain its advancement count
 
 
-advancement adco:first_join {
-    "criteria": {
-        "requirement": {
-            "trigger": "minecraft:tick"
-        }
-    },
-    "rewards": {
-        "function": "adco:recalculate_player"
-    }
-}
 
-scoreboard players reset * adco.score
+function ~/tick:
+    schedule function ~/ 1s replace
+    execute as @a unless score @s adco.recalculate_version = %latest adco.recalculate_version:
+        scoreboard players operation @s adco.recalculate_version = %latest adco.recalculate_version
+        function adco:recalculate/player
 
-execute as @a run function adco:recalculate_player:
+
+function ~/player:
     scoreboard players reset @s adco.score
 
     vanilla = ctx.inject(Vanilla)

@@ -26,8 +26,4 @@ The maximum number of points you can score is 231.
 - advancements from other datapacks or mods are not supported
 - bug reports and suggestions are **ONLY** accepted on [GitHub](https://github.com/2mal3/Advancement-Count/issues)
 - to uninstall, run the command `/function adco:core/uninstall`and then optionally delete the datapack file
-- to reset the scores for all current players, run the command `/function adco:reset`
-- to recalculate the points for all players, run the command `/function adco:recalculate`
-- to recalculate the points for a specific player, run the command `/function adco:recalculate_player`
 - datapack was created with the help of [beet](https://github.com/mcbeet/beet)
-- datapack uses the [psm library](https://github.com/2mal3/player-score-migrator)
