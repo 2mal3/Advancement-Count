@@ -68,7 +68,7 @@ def create_root_advancement():
                 "title": "Installed Datapacks",
                 "description": "",
                 "icon": {"id": "minecraft:knowledge_book"},
-                "background": "minecraft:textures/block/gray_concrete.png",
+                "background": "minecraft:block/gray_concrete",
                 "show_toast": False,
                 "announce_to_chat": False,
             },

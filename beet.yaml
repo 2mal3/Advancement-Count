@@ -3,13 +3,13 @@ name: "Advancement Count"
 description: "Awards players a certain number of points for each advancement they complete. The total number for each player can then be viewed in the Tab list."
 author: "2mal3"
 version: "v2.0.0"
-minecraft: "1.21"
 
 output: "build"
 
 data_pack:
   name: "Advancement-Count"
   description: "v2.0.0"
+  pack_format: 88
   load:
     - "src"
     - pack.png: "pack.png"
