@@ -9,8 +9,8 @@ permissions:
   contents: write
 
 env:
-  NAME: 'Advancement-Count'
-  MODRINTH_ID: '2tEdxXOF'
+  NAME: "Advancement-Count"
+  MODRINTH_ID: "2tEdxXOF"
 
 jobs:
   release:
@@ -31,7 +31,7 @@ jobs:
         run: pip install -r requirements.lock
 
       - name: Build
-        run: beet
+        run: beet build
 
       - name: Pack Datapack
         run: |
