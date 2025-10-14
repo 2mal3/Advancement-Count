@@ -2,13 +2,13 @@ id: "adco"
 name: "Advancement Count"
 description: "Awards players a certain number of points for each advancement they complete. The total number for each player can then be viewed in the Tab list."
 author: "2mal3"
-version: "v2.0.0"
+version: "v2.0.1"
 
 output: "build"
 
 data_pack:
   name: "Advancement-Count"
-  description: "v2.0.0"
+  description: "v2.0.1"
   pack_format: 88
   load:
     - "src"
@@ -22,7 +22,7 @@ require:
   - bolt
 
 meta:
-  version: 20000
+  version: 20001
 
   bolt:
     entrypoint:
